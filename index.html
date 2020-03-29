@@ -5,29 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <title>Lease Mileage Calulator</title>
 </head>
 
 <body>
     <div class="container">
-
         <div class="row mb-5 mt-5">
             <div class="input-group">
                 <div class="col-sm-6">
                     Lease Start Date:
-                    <input class="form-control" type="date" value="2020-01-29" id="start_date" readOnly />
+                    <input class="form-control" type="date" value="2020-01-29" id="startDate" readOnly />
                 </div>
-
                 <div class="col-sm-6">
                     Mileage Date:
-                    <input class="form-control" type="date" min="2020-01-29" id="mileage_date" onchange="calculateMiles()" />
+                    <input class="form-control" type="date" min="2020-01-29" id="mileageDate" onchange="calculateMiles()" />
                 </div>
             </div>
         </div>
 
         <div class="row">
-
             <div class="col-sm-4">
                 <div class="card" id="numdays">
                     <div class="card-body">
@@ -58,27 +54,28 @@
     </div>
 
     <script>
-        var leaseMileageAllowed = 30000;
-        var daysInLease = 1099;
-        var startingMileage = 136;
-        var currentMiles = 1645;
+        const leaseMileageAllowed = 30000;
+        const daysInLease = 1099;
+        const startingMileage = 136;
+        const currentMiles = 1645;
 
-        var dailyAllowance = leaseMileageAllowed / daysInLease;
-        var dayOne = dailyAllowance + startingMileage;
+        const dailyAllowance = leaseMileageAllowed / daysInLease;
+        const dayOne = dailyAllowance + startingMileage;
 
-        function GetDays() {
-            var dropdt = new Date(document.getElementById("mileage_date").value);
-            var pickdt = new Date(document.getElementById("start_date").value);
-            return parseInt((dropdt - pickdt) / (24 * 3600 * 1000));
+        function getDays() {
+            const mileageDate = new Date(document.getElementById("mileageDate").value);
+            const startDate = new Date(document.getElementById("startDate").value);
+            return parseInt((mileageDate - startDate) / (24 * 3600 * 1000));
         }
 
         function calculateMiles() {
-            if (document.getElementById("mileage_date")) {
-                document.getElementById("numdays2").innerHTML = GetDays();
-                var calcMiles = GetDays() * 27.21 + 136;
+            if (document.getElementById("mileageDate")) {
+                document.getElementById("numdays2").innerHTML = getDays();
+                const calcMiles = getDays() * 27.21 + 136;
                 document.getElementById("calc").innerHTML = calcMiles.toFixed(2) + " miles";
             }
         }
+
 
         document.getElementById("currentMiles").innerHTML = currentMiles;
     </script>
