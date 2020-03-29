@@ -25,6 +25,15 @@
 
         <div class="row">
             <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Mileage:</h5>
+                        <p class="card-text" id="currentMiles"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
                 <div class="card" id="numdays">
                     <div class="card-body">
                         <h5 class="card-title">Number of Days:</h5>
@@ -38,15 +47,6 @@
                     <div class="card-body">
                         <h5 class="card-title">Calculated Mileage:</h5>
                         <p class="card-text" id="calc"></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Current miles:</h5>
-                        <p class="card-text" id="currentMiles"></p>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
         }
 
 
-        document.getElementById("currentMiles").innerHTML = currentMiles;
+        document.getElementById("currentMiles").innerHTML = currentMiles + " miles";
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
