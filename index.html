@@ -3,16 +3,72 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <title>Lease Mileage Calulator</title>
 </head>
 
 <body>
-    <p>lease Mileage</p>
+    <div class="container">
+
+        <div class="col-sm-12">
+            <div class="input-group">
+                <div class="col-sm-5">
+                    Lease Start Date:
+                    <input class="form-control" type="date" value="2020-01-29" id="start_date" readOnly />
+                </div>
+
+                <div class="col-sm-5">
+                    Mileage Date:
+                    <input class="form-control" type="date" min="2020-01-29" id="mileage_date" onchange="calculateMiles()" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div id="numdays">Number of Days:
+                <span id="numdays2"></span>
+            </div>
+            <div id="calculatedMiles">Calculated Mileage:
+                <span id="calc"></span>
+            </div>
+
+            <div>Current miles:
+                <span id="currentMiles"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var leaseMileageAllowed = 30000;
+        var daysInLease = 1099;
+        var startingMileage = 136;
+        var currentMiles = 1645;
+
+        var dailyAllowance = leaseMileageAllowed / daysInLease;
+        var dayOne = dailyAllowance + startingMileage;
+
+        function GetDays() {
+            var dropdt = new Date(document.getElementById("mileage_date").value);
+            var pickdt = new Date(document.getElementById("start_date").value);
+            return parseInt((dropdt - pickdt) / (24 * 3600 * 1000));
+        }
+
+        function calculateMiles() {
+            if (document.getElementById("mileage_date")) {
+                document.getElementById("numdays2").innerHTML = GetDays();
+                var calcMiles = GetDays() * 27.21 + 136;
+                document.getElementById("calc").innerHTML = calcMiles.toFixed(2) + " miles";
+            }
+        }
+
+        document.getElementById("currentMiles").innerHTML = currentMiles;
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
