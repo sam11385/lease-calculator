@@ -16,7 +16,7 @@
 <body>
     <div class="container">
 
-        <div class="row mt-1">
+        <div class="row mt-2">
             <div class="col-sm-6">
                 When did your lease start?
                 <input class="form-control" type="date" id="userSelectStartDate" onchange="enableButton()" />
@@ -24,16 +24,20 @@
 
             <div class="col-sm-4">
                 When will your lease end?
-                <input class="form-control" type="date" id="userSelectEndDate" />
+                <input class="form-control" type="date" id="userSelectEndDate" onchange="enableButton()" />
             </div>
 
             <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">Calculate</button>
-            <!-- <button type="button" onclick="resetDays()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reset Dates">Reset</button> -->
-
         </div>
 
         <div class="row mt-5 hide" id="showMe">
             <div class="col-sm-12">You have <span id="totalDaysInlease"></span> days in your lease.</div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-sm-12">How many miles are allowed on your lease?
+                <input class="form-control ml-2" style="max-width: 100px; display: inline-block;" type="number">
+            </div>
         </div>
 
 
@@ -125,8 +129,7 @@
 
 
         function enableButton() {
-            const valueDate = document.getElementById("userSelectStartDate").value;
-            if (!valueDate) {
+            if (!document.getElementById("userSelectStartDate").value || !document.getElementById("userSelectEndDate").value) {
                 document.getElementById('calculateButtton').disabled = true;
             } else {
                 document.getElementById('calculateButtton').disabled = false;
@@ -148,13 +151,6 @@
         }
 
         document.getElementById("currentMiles").innerHTML = currentMiles + " miles";
-
-        //Get days between dates
-        var start = moment("2018-03-10", "YYYY-MM-DD");
-        var end = moment("2018-03-07", "YYYY-MM-DD");
-        var duration = moment.duration(start.diff(end))
-        console.log(duration.asDays().toFixed());
-        // returns duration object with the duration between x and y
     </script>
 </body>
 
