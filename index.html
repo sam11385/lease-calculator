@@ -6,26 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Lease Mileage Calculator</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
 
-        <div class="row mt-5">
+        <div class="row mt-1">
             <div class="col-sm-6">
                 When did your lease start?
-                <input class="form-control" type="date" id="whenStartDate" />
+                <input class="form-control" type="date" id="userSelectStartDate" onchange="enableButton()" />
             </div>
 
             <div class="col-sm-4">
                 When will your lease end?
-                <input class="form-control" type="date" id="whenEndDate" />
+                <input class="form-control" type="date" id="userSelectEndDate" />
             </div>
 
-            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">Calculate</button>
+            <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">Calculate</button>
+            <!-- <button type="button" onclick="resetDays()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Reset Dates">Reset</button> -->
+
         </div>
 
-
+        <div class="row mt-5 hide" id="showMe">
+            <div class="col-sm-12">You have <span id="totalDaysInlease"></span> days in your lease.</div>
+        </div>
 
 
         <div class="show">
@@ -99,11 +108,31 @@
         const dailyAllowance = leaseMileageAllowed / daysInLease;
         const dayOne = dailyAllowance + startingMileage;
 
+        // Get days for MY lease
         function getDays() {
             const mileageDate = new Date(document.getElementById("mileageDate").value);
             const startDate = new Date(document.getElementById("startDate").value);
-            return parseInt((mileageDate - startDate) / (24 * 3600 * 1000));
+            return parseInt((mileageDate - startDate) / (24 * 3600 * 1000) + 1);
         }
+
+        // Get days for ANY input dates
+        function calculateDays() {
+            const userStartDate = new Date(document.getElementById("userSelectStartDate").value);
+            const userEndDate = new Date(document.getElementById("userSelectEndDate").value);
+            document.getElementById('totalDaysInlease').innerHTML = parseInt((userEndDate - userStartDate) / (24 * 3600 * 1000) + 1);
+            toggleDivs();
+        }
+
+
+        function enableButton() {
+            const valueDate = document.getElementById("userSelectStartDate").value;
+            if (!valueDate) {
+                document.getElementById('calculateButtton').disabled = true;
+            } else {
+                document.getElementById('calculateButtton').disabled = false;
+            }
+        }
+
 
         function calculateMiles() {
             if (document.getElementById("mileageDate")) {
@@ -113,13 +142,16 @@
             }
         }
 
+        function toggleDivs() {
+            const show = document.getElementById("showMe");
+            show.classList.toggle("hide");
+        }
 
         document.getElementById("currentMiles").innerHTML = currentMiles + " miles";
 
-
         //Get days between dates
         var start = moment("2018-03-10", "YYYY-MM-DD");
-        var end = moment("2018-03-15", "YYYY-MM-DD");
+        var end = moment("2018-03-07", "YYYY-MM-DD");
         var duration = moment.duration(start.diff(end))
         console.log(duration.asDays().toFixed());
         // returns duration object with the duration between x and y
