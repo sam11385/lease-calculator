@@ -5,55 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Lease Mileage Calulator</title>
+    <title>Lease Mileage Calculator</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="row mb-5 mt-5">
-            <div class="input-group">
-                <div class="col-sm-6">
-                    Lease Start Date:
-                    <input class="form-control" type="date" value="2020-01-29" id="startDate" readOnly />
-                </div>
-                <div class="col-sm-6">
-                    Mileage Date:
-                    <input class="form-control" type="date" min="2020-01-29" id="mileageDate" onchange="calculateMiles()" />
-                </div>
+
+        <div class="row mt-5">
+            <div class="col-sm-6">
+                When did your lease start?
+                <input class="form-control" type="date" id="whenStartDate" />
             </div>
+
+            <div class="col-sm-4">
+                When will your lease end?
+                <input class="form-control" type="date" id="whenEndDate" />
+            </div>
+
+            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">Calculate</button>
         </div>
 
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Current Mileage:</h5>
-                        <p class="card-text" id="currentMiles"></p>
+
+
+
+        <div class="show">
+            <div class="row mb-5 mt-5">
+                <div class="input-group">
+                    <div class="col-sm-6">
+                        Lease Start Date:
+                        <input class="form-control" type="date" value="2020-01-29" id="startDate" readOnly />
+                    </div>
+                    <div class="col-sm-6">
+                        Mileage Calculation Date:
+                        <input class="form-control" type="date" min="2020-01-29" id="mileageDate" onchange="calculateMiles()" />
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-4">
-                <div class="card" id="numdays">
-                    <div class="card-body">
-                        <h5 class="card-title">Number of Days:</h5>
-                        <p class="card-text" id="numdays2"></p>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Current Mileage:</h5>
+                            <p class="card-text" id="currentMiles"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-sm-4">
-                <div class="card" id="calculatedMiles">
-                    <div class="card-body">
-                        <h5 class="card-title">Calculated Mileage:</h5>
-                        <p class="card-text" id="calc"></p>
+                <div class="col-sm-4">
+                    <div class="card" id="numdays">
+                        <div class="card-body">
+                            <h5 class="card-title">Number of Days:</h5>
+                            <p class="card-text" id="numdays2"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card" id="calculatedMiles">
+                        <div class="card-body">
+                            <h5 class="card-title">Calculated Mileage:</h5>
+                            <p class="card-text" id="calc"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>
+
     <script>
+        // Iniatialize tooltip with jquery (yuck)
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
         const leaseMileageAllowed = 30000;
         const daysInLease = 1099;
         const startingMileage = 136;
@@ -78,11 +109,15 @@
 
 
         document.getElementById("currentMiles").innerHTML = currentMiles + " miles";
-    </script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        //Get days between dates
+        var start = moment("2018-03-10", "YYYY-MM-DD");
+        var end = moment("2018-03-15", "YYYY-MM-DD");
+        var duration = moment.duration(start.diff(end))
+        console.log(duration.asDays().toFixed());
+        // returns duration object with the duration between x and y
+    </script>
 </body>
 
 </html>
