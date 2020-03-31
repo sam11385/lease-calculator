@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="row over-under hide">
+            <div class="row over-under hide" id="showOverUnder">
                 <div class="col-sm-12">
                     You are <span id="overBy"></span> <span id="underBy"></span> by <span id="compared"></span> miles.
                 </div>
@@ -130,6 +130,16 @@
                 const calcMiles = getDays() * dailyAllowance + startingMileage;
                 document.getElementById("calc").innerHTML = calcMiles.toFixed(2) + " miles";
             }
+            toggleOverUnder();
+        }
+
+        function toggleOverUnder() {
+            const showOverUnder = document.getElementById("showOverUnder");
+            showOverUnder.classList.remove("hide");
+
+            document.getElementById("overBy").innerHTML = "over";
+            document.getElementById("underBy").innerHTML = "under";
+            document.getElementById("compared").innerHTML = "7";
         }
 
         // Pass in my miles
