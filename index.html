@@ -10,6 +10,11 @@
         .hide {
             display: none;
         }
+        
+        .max-number-input {
+            max-width: 100px;
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -36,7 +41,7 @@
 
         <div class="row mt-5">
             <div class="col-sm-12">How many miles are allowed on your lease?
-                <input class="form-control ml-2" style="max-width: 100px; display: inline-block;" type="number">
+                <input class="form-control ml-2 max-number-input" type="number">
             </div>
         </div>
 
@@ -84,9 +89,9 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row over-under hide">
                 <div class="col-sm-12">
-                    Are you over or under?
+                    You are <span id="overBy"></span> <span id="underBy"></span> by <span id="compared"></span> miles.
                 </div>
             </div>
         </div>
@@ -107,9 +112,9 @@
         const leaseMileageAllowed = 30000;
         const daysInLease = 1099;
         const startingMileage = 136;
-        const currentMiles = 1645;
+        const currentMiles = 1669;
 
-        const dailyAllowance = leaseMileageAllowed / daysInLease;
+        const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(2);
         const dayOne = dailyAllowance + startingMileage;
 
         // Get days for MY lease
@@ -119,6 +124,20 @@
             return parseInt((mileageDate - startDate) / (24 * 3600 * 1000) + 1);
         }
 
+        function calculateMiles() {
+            if (document.getElementById("mileageDate")) {
+                document.getElementById("numdays2").innerHTML = getDays();
+                const calcMiles = getDays() * dailyAllowance + startingMileage;
+                document.getElementById("calc").innerHTML = calcMiles.toFixed(2) + " miles";
+            }
+        }
+
+        // Pass in my miles
+        document.getElementById("currentMiles").innerHTML = currentMiles + " miles";
+
+
+
+        // User input functionality
         // Get days for ANY input dates
         function calculateDays() {
             const userStartDate = new Date(document.getElementById("userSelectStartDate").value);
@@ -137,20 +156,10 @@
         }
 
 
-        function calculateMiles() {
-            if (document.getElementById("mileageDate")) {
-                document.getElementById("numdays2").innerHTML = getDays();
-                const calcMiles = getDays() * 27.21 + 136;
-                document.getElementById("calc").innerHTML = calcMiles.toFixed(2) + " miles";
-            }
-        }
-
         function toggleDivs() {
             const show = document.getElementById("showMe");
             show.classList.toggle("hide");
         }
-
-        document.getElementById("currentMiles").innerHTML = currentMiles + " miles";
     </script>
 </body>
 
