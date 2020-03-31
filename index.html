@@ -71,10 +71,10 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <div class="card" id="numdays">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Number of Days:</h5>
-                            <p class="card-text" id="numdays2"></p>
+                            <p class="card-text" id="numberOfDays"></p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                     <div class="card" id="calculatedMiles">
                         <div class="card-body">
                             <h5 class="card-title">Calculated Mileage:</h5>
-                            <p class="card-text" id="calc"></p>
+                            <p class="card-text" id="calculatedMileage"></p>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
 
             <div class="row over-under hide" id="showOverUnder">
                 <div class="col-sm-12">
-                    You are <span class="hide" id="overBy">over</span> <span class="hide" id="underBy">under</span> your lease allotment by <span id="compared"></span> miles.
+                    You are <span class="hide" id="overBy">over</span> <span class="hide" id="underBy">under</span> your lease allotment by <span id="comparedMileage"></span> miles.
                 </div>
             </div>
         </div>
@@ -123,10 +123,10 @@
 
         function calculateMiles() {
             if (document.getElementById("mileageDate")) {
-                document.getElementById("numdays2").innerHTML = getDays();
+                document.getElementById("numberOfDays").innerHTML = getDays();
                 const calcMiles = getDays() * dailyAllowance + startingMileage;
-                document.getElementById("calc").innerHTML = calcMiles.toFixed(2) + " miles";
-                document.getElementById("compared").innerHTML = ((calcMiles - currentMiles).toFixed(2));
+                document.getElementById("calculatedMileage").innerHTML = calcMiles.toFixed(2) + " miles";
+                document.getElementById("comparedMileage").innerHTML = ((calcMiles - currentMiles).toFixed(2));
 
                 if (calcMiles - currentMiles > 0) {
                     document.getElementById("underBy").classList.remove("hide");
