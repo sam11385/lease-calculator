@@ -17,12 +17,10 @@
                 When did your lease start?
                 <input class="form-control" type="date" id="userSelectStartDate" onchange="enableButton()" />
             </div>
-
             <div class="col-sm-4">
                 When will your lease end?
                 <input class="form-control" type="date" id="userSelectEndDate" onchange="enableButton()" />
             </div>
-
             <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">Calculate</button>
         </div>
 
@@ -31,61 +29,77 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-sm-12">How many miles are allowed on your lease?
+            <div class="col-sm-5">How many miles are allowed on your lease?
                 <input class="form-control ml-2 max-number-input" type="number">
             </div>
+            <button type="button" disabled class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total miles allowed per day in your lease">Calculate</button>
         </div>
 
-
-        <div class="show">
-            <div class="row mb-5 mt-5">
+        <div class="row mt-5">
+            <div class="col-sm-7">
                 <div class="input-group">
-                    <div class="col-sm-6">
-                        Lease Start Date:
-                        <input class="form-control" type="date" value="2020-01-29" id="startDate" readOnly />
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Did your car have miles to start with? If so, enter the amount here:</span>
                     </div>
-                    <div class="col-sm-6">
-                        Mileage Calculation Date:
-                        <input class="form-control" type="date" min="2020-01-29" id="mileageDate" onchange="calculateMiles()" />
-                    </div>
+                    <input type="number" class="form-control" placeholder="36000">
                 </div>
             </div>
+            <button type="button" disabled class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total miles allowed per day in your lease">Calculate</button>
+        </div>
 
-            <div class="row mb-5">
-                <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Current Mileage:</h5>
-                            <p class="card-text" id="currentMiles"></p>
-                        </div>
-                    </div>
+
+
+
+
+        <!-- Calculate MY personal lease info -->
+        <div class="row mb-5 mt-5">
+            <div class="input-group">
+                <div class="col-sm-6">
+                    Lease Start Date:
+                    <input class="form-control" type="date" value="2020-01-29" id="startDate" readOnly />
                 </div>
-
-                <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Number of Days:</h5>
-                            <p class="card-text" id="numberOfDays"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="card" id="calculatedMiles">
-                        <div class="card-body">
-                            <h5 class="card-title">Calculated Mileage:</h5>
-                            <p class="card-text" id="calculatedMileage"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row over-under hide" id="showOverUnder">
-                <div class="col-sm-12">
-                    You are <span class="hide" id="overBy">over</span> <span class="hide" id="underBy">under</span> your lease allotment by <span id="comparedMileage"></span> miles.
+                <div class="col-sm-6">
+                    Mileage Calculation Date:
+                    <input class="form-control" type="date" min="2020-01-29" id="mileageDate" onchange="calculateMiles()" />
                 </div>
             </div>
         </div>
+
+        <div class="row mb-5">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Mileage:</h5>
+                        <p class="card-text" id="currentMiles"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Number of Days:</h5>
+                        <p class="card-text" id="numberOfDays"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card" id="calculatedMiles">
+                    <div class="card-body">
+                        <h5 class="card-title">Calculated Mileage:</h5>
+                        <p class="card-text" id="calculatedMileage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row over-under hide" id="showOverUnder">
+            <div class="col-sm-12">
+                You are <span class="hide" id="overBy">over</span> <span class="hide" id="underBy">under</span> your lease allotment by <span id="comparedMileage"></span> miles.
+            </div>
+        </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
