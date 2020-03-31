@@ -1,0 +1,8 @@
+.hide {
+    display: none;
+}
+
+.max-number-input {
+    max-width: 100px;
+    display: inline-block;
+}
