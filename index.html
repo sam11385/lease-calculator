@@ -24,22 +24,15 @@
             <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">Calculate</button>
         </div>
 
-        <div class="row mt-5 hide" id="showMe">
+        <div class="row mt-3 hide" id="showMe">
             <div class="col-sm-12">You have <span id="totalDaysInlease"></span> days in your lease.</div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-sm-5">How many miles are allowed on your lease?
-                <input class="form-control ml-2 max-number-input" type="number">
-            </div>
-            <button type="button" disabled class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total miles allowed per day in your lease">Calculate</button>
-        </div>
-
-        <div class="row mt-5">
+        <div class="row mt-4">
             <div class="col-sm-7">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Did your car have miles to start with? If so, enter the amount here:</span>
+                        <span class="input-group-text">How many miles are allowed on your lease?</span>
                     </div>
                     <input type="number" class="form-control" placeholder="36000">
                 </div>
@@ -47,7 +40,17 @@
             <button type="button" disabled class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total miles allowed per day in your lease">Calculate</button>
         </div>
 
-
+        <div class="row mt-4">
+            <div class="col-sm-7">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Did your lease have miles to start with?</span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="150">
+                </div>
+            </div>
+            <button type="button" disabled class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total miles allowed per day in your lease">Calculate</button>
+        </div>
 
 
 
