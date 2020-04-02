@@ -25,7 +25,7 @@
         </div>
 
         <div class="row mt-3 hide" id="showMe">
-            <div class="col-sm-12">You have <span id="totalDaysInlease"></span> days in your lease.</div>
+            <div class="col-sm-12">You have <span id="totalDaysInlease"></span> days in your lease. Now let's get your lease allowance, starting mileage, and today's mileage.</div>
         </div>
 
         <div class="row mt-4">
@@ -43,12 +43,60 @@
             <div class="col-sm-7">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Did your lease have miles to start with?</span>
+                        <span class="input-group-text">How many miles did your lease start with?</span>
                     </div>
                     <input type="number" class="form-control" placeholder="150">
                 </div>
             </div>
         </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-7">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">How many miles do you have right now?</span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="350">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <button type="button" onclick="" disabled id="" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Run it">Run the Numbers!</button>
+            </div>
+        </div>
+
+
+        <div class="row mb-5 mt-5 hide" id="showMe">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Mileage:</h5>
+                        <p class="card-text" id=""></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Number of Days:</h5>
+                        <p class="card-text" id=""></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card" id="calculatedMiles">
+                    <div class="card-body">
+                        <h5 class="card-title">Calculated Mileage:</h5>
+                        <p class="card-text" id=""></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
 
