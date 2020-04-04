@@ -5,7 +5,7 @@
  const leaseMileageAllowed = 30000;
  const daysInLease = 1099;
  const startingMileage = 136;
- const currentMiles = 1669;
+ const currentMiles = 1675;
  const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(2);
 
  // Get days for MY lease
