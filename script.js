@@ -3,10 +3,12 @@
      $('[data-toggle="tooltip"]').tooltip()
  })
  const leaseMileageAllowed = 30000;
- const daysInLease = 1099;
+ const daysInLease = 1100;
  const startingMileage = 136;
- const currentMiles = 1688;
- const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(2);
+ const currentMiles = 1689;
+ const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(5);
+
+ console.log(dailyAllowance);
 
  // Get days for MY lease
  function getDays() {
@@ -15,6 +17,7 @@
      return parseInt((mileageDate - startDate) / (24 * 3600 * 1000) + 1);
  }
 
+ // Calculate Miles for MY lease
  function calculateMiles() {
      if (document.getElementById("mileageDate")) {
          document.getElementById("numberOfDays").innerHTML = getDays();
