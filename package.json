@@ -1,0 +1,19 @@
+{
+  "name": "lease-calculator",
+  "version": "1.0.0",
+  "description": "lease calculator",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam11385/lease-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sam11385/lease-calculator/issues"
+  },
+  "homepage": "https://github.com/sam11385/lease-calculator#readme"
+}
