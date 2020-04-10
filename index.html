@@ -2,16 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Lease Mileage Calculator</title>
 </head>
 
 <body>
     <div class="container">
-
         <div class="row mt-2">
             <div class="col-sm-6">
                 When did your lease start?
@@ -21,140 +20,169 @@
                 When will your lease end?
                 <input class="form-control" type="date" id="userSelectEndDate" onchange="enableButton()" />
             </div>
-            <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">Calculate</button>
+            <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">
+          Calculate
+        </button>
         </div>
 
         <div class="row mt-3 hide" id="showMe">
-            <div class="col-sm-12">You have <span id="totalDaysInlease"></span> days in your lease. Now let's get your lease allowance, starting mileage, and today's mileage.</div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-sm-7">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">How many miles are allowed on your lease?</span>
-                    </div>
-                    <input type="number" class="form-control" placeholder="36000">
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-sm-7">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">How many miles did your lease start with?</span>
-                    </div>
-                    <input type="number" class="form-control" placeholder="150">
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-sm-7">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">How many miles do you have right now?</span>
-                    </div>
-                    <input type="number" class="form-control" placeholder="350">
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4">
             <div class="col-sm-12">
-                <button type="button" onclick="" disabled id="" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Run it">Run the Numbers!</button>
+                You have <span id="totalDaysInlease"></span> days in your lease. Now let's get your lease allowance, starting mileage, and today's mileage.
             </div>
         </div>
 
-
-        <div class="row mb-5 mt-5 hide" id="showCards">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Current Mileage:</h5>
-                        <p class="card-text" id=""></p>
-                    </div>
-                </div>
+        <div class="row mt-4">
+            <div class="col-sm-7">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">How many miles are allowed on your lease?</span
+              >
             </div>
+            <input type="number" class="form-control" placeholder="36000" />
+          </div>
+        </div>
+      </div>
 
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Number of Days:</h5>
-                        <p class="card-text" id=""></p>
-                    </div>
-                </div>
+      <div class="row mt-4">
+        <div class="col-sm-7">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                >How many miles did your lease start with?</span
+              >
             </div>
+            <input type="number" class="form-control" placeholder="150" />
+          </div>
+        </div>
+      </div>
 
-            <div class="col-sm-4">
-                <div class="card" id="calculatedMiles">
-                    <div class="card-body">
-                        <h5 class="card-title">Calculated Mileage:</h5>
-                        <p class="card-text" id=""></p>
-                    </div>
-                </div>
+      <div class="row mt-4">
+        <div class="col-sm-7">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                >How many miles do you have right now?</span
+              >
             </div>
+            <input type="number" class="form-control" placeholder="350" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-12">
+          <button
+            type="button"
+            onclick=""
+            disabled
+            id=""
+            class="btn btn-primary"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Run it"
+          >
+            Run the Numbers!
+          </button>
+        </div>
+      </div>
+
+      <div class="row mb-5 mt-5 hide" id="showCards">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Current Mileage:</h5>
+              <p class="card-text" id=""></p>
+            </div>
+          </div>
         </div>
 
-
-
-
-        <!-- Calculate MY personal lease info -->
-        <div class="row mb-5 mt-5">
-            <div class="input-group">
-                <div class="col-sm-6">
-                    Lease Start Date:
-                    <input class="form-control" type="date" value="2020-01-29" id="startDate" readOnly />
-                </div>
-                <div class="col-sm-6">
-                    Mileage Calculation Date:
-                    <input class="form-control" type="date" min="2020-01-29" id="mileageDate" onchange="calculateMiles()" />
-                </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Number of Days:</h5>
+              <p class="card-text" id=""></p>
             </div>
+          </div>
         </div>
 
-        <div class="row mb-5">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Current Mileage:</h5>
-                        <p class="card-text" id="currentMiles"></p>
+        <div class="col-sm-4">
+          <div class="card" id="calculatedMiles">
+            <div class="card-body">
+              <h5 class="card-title">Calculated Mileage:</h5>
+              <p class="card-text" id=""></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculate MY personal lease info -->
+      <div class="row mb-5 mt-5">
+        <div class="input-group">
+          <div class="col-sm-6">
+            Lease Start Date:
+            <input
+              class="form-control"
+              type="date"
+              value="2020-01-29"
+              id="startDate"
+              readonly
+            />
+          </div>
+          <div class="col-sm-6">
+            Mileage Calculation Date:
+            <input
+              class="form-control"
+              type="date"
+              min="2020-01-29"
+              id="mileageDate"
+              onchange="calculateMiles()"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Current Mileage:</h5>
+              <p class="card-text" id="currentMiles"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Number of Days:</h5>
+              <p class="card-text" id="numberOfDays"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card" id="calculatedMiles">
+            <div class="card-body">
+              <h5 class="card-title">Calculated Mileage:</h5>
+              <p class="card-text" id="calculatedMileage"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row over-under hide" id="showOverUnder">
+        <div class="col-sm-12">
+          You are <span class="hide" id="overBy">over</span>
+                        <span class="hide" id="underBy">under</span> your lease allotment by
+                        <span id="comparedMileage"></span> miles.
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Number of Days:</h5>
-                        <p class="card-text" id="numberOfDays"></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="card" id="calculatedMiles">
-                    <div class="card-body">
-                        <h5 class="card-title">Calculated Mileage:</h5>
-                        <p class="card-text" id="calculatedMileage"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row over-under hide" id="showOverUnder">
-            <div class="col-sm-12">
-                You are <span class="hide" id="overBy">over</span> <span class="hide" id="underBy">under</span> your lease allotment by <span id="comparedMileage"></span> miles.
-            </div>
-        </div>
-
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="script.js"></script>
 </body>
 
 </html>
