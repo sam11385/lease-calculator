@@ -5,7 +5,7 @@ $(function() {
 const leaseMileageAllowed = 30000;
 const daysInLease = 1100;
 const startingMileage = 136;
-const currentMiles = 1709;
+const currentMiles = 1720;
 const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(5);
 
 // Get days for MY lease
