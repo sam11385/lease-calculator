@@ -35,6 +35,12 @@ function calculateMiles() {
     toggleOverUnder();
 }
 
+function updateCurrentMileage() {
+    console.log(document.getElementById("enterCurrentMileage").value);
+
+    currentMiles = document.getElementById("enterCurrentMileage").value;
+}
+
 function toggleOverUnder() {
     const showOverUnder = document.getElementById("showOverUnder");
     showOverUnder.classList.remove("hide");
@@ -65,6 +71,12 @@ function enableButton() {
         document.getElementById("calculateButtton").disabled = true;
     } else {
         document.getElementById("calculateButtton").disabled = false;
+    }
+
+    if (!document.getElementById("enterCurrentMileage").value) {
+        document.getElementById("saveCurrentMileage").disabled = true;
+    } else {
+        document.getElementById("saveCurrentMileage").disabled = false;
     }
 }
 
