@@ -34,7 +34,7 @@ function calculateMiles() {
             document.getElementById("overBy").classList.remove("hide");
         }
     }
-    toggleOverUnder();
+    toggleMileageOverUnder();
 }
 
 function updateCurrentMileage() {
@@ -45,9 +45,11 @@ function updateCurrentMileage() {
     document.getElementById("showMyCalculations").classList.remove("hide");
 }
 
-function toggleOverUnder() {
-    const showOverUnder = document.getElementById("showOverUnder");
-    showOverUnder.classList.remove("hide");
+function toggleMileageOverUnder() {
+    const showLeaseMileageOverUnder = document.getElementById(
+        "showLeaseMileageOverUnder"
+    );
+    showLeaseMileageOverUnder.classList.remove("hide");
 }
 
 // User input functionality
