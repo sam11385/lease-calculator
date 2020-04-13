@@ -5,7 +5,6 @@ $(function() {
 const leaseMileageAllowed = 30000;
 const daysInLease = 1100;
 const startingMileage = 136;
-const currentMiles = 1720;
 const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(5);
 
 // Get days for MY lease
@@ -23,12 +22,15 @@ function calculateMiles() {
         document.getElementById("calculatedMileage").innerHTML =
             calcMiles.toFixed(2) + " miles";
         document.getElementById("comparedMileage").innerHTML = (
-            calcMiles - currentMiles
+            calcMiles - document.getElementById("enterCurrentMileage").value
         ).toFixed(2);
 
-        if (calcMiles - currentMiles > 0) {
+        if (calcMiles - document.getElementById("enterCurrentMileage").value > 0) {
             document.getElementById("underBy").classList.remove("hide");
-        } else if (calcMiles - currentMiles < 0) {
+        } else if (
+            calcMiles - document.getElementById("enterCurrentMileage").value <
+            0
+        ) {
             document.getElementById("overBy").classList.remove("hide");
         }
     }
@@ -36,18 +38,17 @@ function calculateMiles() {
 }
 
 function updateCurrentMileage() {
-    console.log(document.getElementById("enterCurrentMileage").value);
+    document.getElementById("currentMiles").innerHTML = document.getElementById(
+        "enterCurrentMileage"
+    ).value;
 
-    currentMiles = document.getElementById("enterCurrentMileage").value;
+    document.getElementById("showMyCalculations").classList.remove("hide");
 }
 
 function toggleOverUnder() {
     const showOverUnder = document.getElementById("showOverUnder");
     showOverUnder.classList.remove("hide");
 }
-
-// Pass in my miles
-document.getElementById("currentMiles").innerHTML = currentMiles + " miles";
 
 // User input functionality
 // Get days for ANY input dates
