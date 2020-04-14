@@ -7,6 +7,13 @@ const daysInLease = 1100;
 const startingMileage = 136;
 const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(5);
 
+// Get days for MY lease
+function getDays() {
+    const mileageDate = new Date(document.getElementById("mileageDate").value);
+    const startDate = new Date(document.getElementById("startDate").value);
+    return parseInt((mileageDate - startDate) / (24 * 3600 * 1000) + 1);
+}
+
 // Calculate Miles for MY lease
 function calculateMiles() {
     if (document.getElementById("mileageDate")) {
@@ -27,34 +34,28 @@ function calculateMiles() {
             document.getElementById("overBy").classList.remove("hide");
         }
     }
+    toggleMileageOverUnder();
 }
 
-// User input functionality
-// Get days for ANY input dates
-function calculateDays() {
-    const userStartDate = new Date(
-        document.getElementById("userSelectStartDate").value
+function updateCurrentMileage() {
+    document.getElementById("currentMiles").innerHTML = document.getElementById(
+        "enterCurrentMileage"
+    ).value;
+
+    document.getElementById("showMyCalculations").classList.remove("hide");
+}
+
+function toggleMileageOverUnder() {
+    const showLeaseMileageOverUnder = document.getElementById(
+        "showLeaseMileageOverUnder"
     );
-    const userEndDate = new Date(
-        document.getElementById("userSelectEndDate").value
-    );
-    document.getElementById("totalDaysInlease").innerHTML = parseInt(
-        (userEndDate - userStartDate) / (24 * 3600 * 1000) + 1
-    );
-    toggleDivs();
+    showLeaseMileageOverUnder.classList.remove("hide");
 }
 
 function enableButton() {
-    if (!document.getElementById("userSelectStartDate").value ||
-        !document.getElementById("userSelectEndDate").value
-    ) {
-        document.getElementById("calculateButtton").disabled = true;
+    if (!document.getElementById("enterCurrentMileage").value) {
+        document.getElementById("saveCurrentMileage").disabled = true;
     } else {
-        document.getElementById("calculateButtton").disabled = false;
+        document.getElementById("saveCurrentMileage").disabled = false;
     }
-}
-
-function toggleDivs() {
-    const show = document.getElementById("showMe");
-    show.classList.toggle("hide");
 }
