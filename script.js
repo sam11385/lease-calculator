@@ -7,7 +7,7 @@ const daysInLease = 1100;
 const startingMileage = 136;
 const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(5);
 
-// Calculate Miles for MY lease
+// Calculate Miles TODO: Cleanup
 function calculateMiles() {
     if (document.getElementById("mileageDate")) {
         document.getElementById("numberOfDays").innerHTML = getDays();
