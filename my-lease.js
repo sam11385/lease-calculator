@@ -1,7 +1,3 @@
-// Iniatialize tooltip with jquery (yuck)
-$(function() {
-    $('[data-toggle="tooltip"]').tooltip();
-});
 const leaseMileageAllowed = 30000;
 const daysInLease = 1100;
 const startingMileage = 136;
