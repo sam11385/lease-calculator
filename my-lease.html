@@ -11,7 +11,16 @@
 
 <body>
     <div class="container">
-        <div class="row mb-3 mt-5">
+        <div class="row mt-5 mb-4">
+            <div class="col-sm-12">
+                <p>First, let's enter in todays mileage</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Update Today's Mileage
+          </button>
+            </div>
+        </div>
+
+        <div class="row mb-3 mt-4">
             <div class="input-group">
                 <div class="col-sm-6">
                     Lease Start Date:
@@ -21,14 +30,6 @@
                     Mileage Calculation Date:
                     <input class="form-control" type="date" min="2020-01-29" id="mileageDate" onchange="calculateMiles()" />
                 </div>
-            </div>
-        </div>
-
-        <div class="row mt-3 mb-4">
-            <div class="col-sm-12">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Update Today's Mileage
-          </button>
             </div>
         </div>
 
