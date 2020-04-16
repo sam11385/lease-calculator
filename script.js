@@ -52,6 +52,15 @@ function enableButton() {
     } else {
         document.getElementById("calculateButtton").disabled = false;
     }
+
+    if (!document.getElementById("userMilesAllowed").value ||
+        !document.getElementById("userMilesStartedWith").value ||
+        !document.getElementById("userMilesNow").value
+    ) {
+        document.getElementById("runNumbersButton").disabled = true;
+    } else {
+        document.getElementById("runNumbersButton").disabled = false;
+    }
 }
 
 function toggleDivs() {

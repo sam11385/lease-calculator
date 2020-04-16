@@ -38,7 +38,13 @@
                         <span class="input-group-text">How many miles are allowed on your lease?</span
               >
             </div>
-            <input type="number" class="form-control" placeholder="36000" />
+            <input
+              type="number"
+              id="userMilesAllowed"
+              class="form-control"
+              placeholder="36000"
+              onchange="enableButton()"
+            />
           </div>
         </div>
       </div>
@@ -51,7 +57,13 @@
                 >How many miles did your lease start with?</span
               >
             </div>
-            <input type="number" class="form-control" placeholder="150" />
+            <input
+              type="number"
+              id="userMilesStartedWith"
+              class="form-control"
+              placeholder="150"
+              onchange="enableButton()"
+            />
           </div>
         </div>
       </div>
@@ -64,7 +76,13 @@
                 >How many miles do you have right now?</span
               >
             </div>
-            <input type="number" class="form-control" placeholder="350" />
+            <input
+              type="number"
+              id="userMilesNow"
+              class="form-control"
+              placeholder="350"
+              onchange="enableButton()"
+            />
           </div>
         </div>
       </div>
@@ -75,7 +93,7 @@
             type="button"
             onclick=""
             disabled
-            id=""
+            id="runNumbersButton"
             class="btn btn-primary"
             data-toggle="tooltip"
             data-placement="top"
