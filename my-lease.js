@@ -39,6 +39,7 @@ function updateCurrentMileage() {
     ).value;
 
     document.getElementById("showMyCalculations").classList.remove("hide");
+    document.getElementById("mileageDate").disabled = false;
 }
 
 function toggleMileageOverUnder() {
