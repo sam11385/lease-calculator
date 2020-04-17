@@ -25,7 +25,7 @@
         </button>
         </div>
 
-        <div class="row mt-3 hide" id="showMe">
+        <div class="row mt-3 hide" id="showDays">
             <div class="col-sm-12">
                 You have <span id="totalDaysInlease"></span> days in your lease. Now let's get your lease allowance, starting mileage, and today's mileage.
             </div>
@@ -91,15 +91,23 @@
         <div class="col-sm-12">
           <button
             type="button"
-            onclick=""
             disabled
             id="runNumbersButton"
             class="btn btn-primary"
             data-toggle="tooltip"
             data-placement="top"
             title="Run it"
+            onclick="calculateMiles()"
           >
             Run the Numbers!
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-primary ml-2"
+            onclick="location.reload()"
+          >
+            Reset All
           </button>
         </div>
       </div>
@@ -109,7 +117,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Current Mileage:</h5>
-              <p class="card-text" id=""></p>
+              <p class="card-text" id="currentMileage"></p>
             </div>
           </div>
         </div>
@@ -133,7 +141,10 @@
         </div>
       </div>
 
-      <div class="row mt-3">
+      <div class="row mt-5">
+        <div class="col-sm-12">
+          <hr />
+        </div>
         <div class="col-sm-4">
           <a class="btn btn-primary" href="my-lease.html"
             >Calculate MY Lease Info</a

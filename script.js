@@ -41,7 +41,23 @@ function calculateDays() {
     document.getElementById("totalDaysInlease").innerHTML = parseInt(
         (userEndDate - userStartDate) / (24 * 3600 * 1000) + 1
     );
-    toggleDivs();
+    showDaysDisplay();
+}
+
+function calculateMiles() {
+    console.log(document.getElementById("userMilesAllowed").value);
+    console.log(document.getElementById("userMilesStartedWith").value);
+    console.log(document.getElementById("userMilesNow").value);
+    if (document.getElementById("mileageDate")) {
+        document.getElementById("numberOfDays").innerHTML = getDays();
+        const calcMiles = getDays() * dailyAllowance + startingMileage;
+        document.getElementById("calculatedMileage").innerHTML =
+            calcMiles.toFixed(2) + " miles";
+        document.getElementById("comparedMileage").innerHTML = (
+            calcMiles - document.getElementById("enterCurrentMileage").value
+        ).toFixed(2);
+    }
+    showCardDisplay();
 }
 
 function enableButton() {
@@ -63,7 +79,12 @@ function enableButton() {
     }
 }
 
-function toggleDivs() {
-    const show = document.getElementById("showMe");
-    show.classList.toggle("hide");
+function showDaysDisplay() {
+    const showDays = document.getElementById("showDays");
+    showDays.classList.toggle("hide");
+}
+
+function showCardDisplay() {
+    const showCards = document.getElementById("showCards");
+    showCards.classList.toggle("hide");
 }
