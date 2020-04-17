@@ -1,33 +1,28 @@
-// Iniatialize tooltip with jquery (yuck)
-$(function() {
-    $('[data-toggle="tooltip"]').tooltip();
-});
-const leaseMileageAllowed = 30000;
-const daysInLease = 1100;
-const startingMileage = 136;
-const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(5);
+// const dailyAllowance = (leaseMileageAllowed / daysInLease).toFixed(5);
 
 // Calculate Miles TODO: Cleanup
-function calculateMiles() {
-    if (document.getElementById("mileageDate")) {
-        document.getElementById("numberOfDays").innerHTML = getDays();
-        const calcMiles = getDays() * dailyAllowance + startingMileage;
-        document.getElementById("calculatedMileage").innerHTML =
-            calcMiles.toFixed(2) + " miles";
-        document.getElementById("comparedMileage").innerHTML = (
-            calcMiles - document.getElementById("enterCurrentMileage").value
-        ).toFixed(2);
+// function calculateMiles() {
+//     if (document.getElementById("mileageDate")) {
+//         document.getElementById("currentMileage").innerHTML = startingMileage + ;
 
-        if (calcMiles - document.getElementById("enterCurrentMileage").value > 0) {
-            document.getElementById("underBy").classList.remove("hide");
-        } else if (
-            calcMiles - document.getElementById("enterCurrentMileage").value <
-            0
-        ) {
-            document.getElementById("overBy").classList.remove("hide");
-        }
-    }
-}
+//         document.getElementById("numberOfDays").innerHTML = getDays();
+//         const calcMiles = getDays() * dailyAllowance + startingMileage;
+//         document.getElementById("calculatedMileage").innerHTML =
+//             calcMiles.toFixed(2) + " miles";
+//         document.getElementById("comparedMileage").innerHTML = (
+//             calcMiles - document.getElementById("enterCurrentMileage").value
+//         ).toFixed(2);
+
+//         if (calcMiles - document.getElementById("enterCurrentMileage").value > 0) {
+//             document.getElementById("underBy").classList.remove("hide");
+//         } else if (
+//             calcMiles - document.getElementById("enterCurrentMileage").value <
+//             0
+//         ) {
+//             document.getElementById("overBy").classList.remove("hide");
+//         }
+//     }
+// }
 
 // User input functionality
 // Get days for ANY input dates
@@ -45,9 +40,23 @@ function calculateDays() {
 }
 
 function calculateMiles() {
-    console.log(document.getElementById("userMilesAllowed").value);
-    console.log(document.getElementById("userMilesStartedWith").value);
-    console.log(document.getElementById("userMilesNow").value);
+    const startedWith = parseInt(
+        document.getElementById("userMilesStartedWith").value
+    );
+    const milesNow = parseInt(document.getElementById("userMilesNow").value);
+
+    document.getElementById("currentMileage").innerHTML = startedWith + milesNow;
+
+    const today = new Date();
+
+    const userEndDate = new Date(
+        document.getElementById("userSelectEndDate").value
+    );
+
+    document.getElementById("daysCalculation").innerHTML = parseInt(
+        (userEndDate - today) / (24 * 3600 * 1000)
+    );
+
     if (document.getElementById("mileageDate")) {
         document.getElementById("numberOfDays").innerHTML = getDays();
         const calcMiles = getDays() * dailyAllowance + startingMileage;

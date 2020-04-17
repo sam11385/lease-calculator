@@ -20,7 +20,7 @@
                 When will your lease end?
                 <input class="form-control mt-2" type="date" id="userSelectEndDate" onchange="enableButton()" />
             </div>
-            <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Get the total number of days in your lease">
+            <button type="button" onclick="calculateDays()" disabled id="calculateButtton" class="btn btn-primary">
           Calculate
         </button>
         </div>
@@ -73,7 +73,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"
-                >How many miles do you have right now?</span
+                >How many miles do you have today?</span
               >
             </div>
             <input
@@ -94,9 +94,6 @@
             disabled
             id="runNumbersButton"
             class="btn btn-primary"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Run it"
             onclick="calculateMiles()"
           >
             Run the Numbers!
@@ -125,8 +122,10 @@
         <div class="col-sm-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Number of Days:</h5>
-              <p class="card-text" id=""></p>
+              <h5 class="card-title">
+                Number of days remaining in your lease as of today:
+              </h5>
+              <p class="card-text" id="daysCalculation"></p>
             </div>
           </div>
         </div>
@@ -134,7 +133,7 @@
         <div class="col-sm-4">
           <div class="card" id="calculatedMiles">
             <div class="card-body">
-              <h5 class="card-title">Calculated Mileage:</h5>
+              <h5 class="card-title">Maximum Mileage for Selected Date:</h5>
               <p class="card-text" id=""></p>
             </div>
           </div>
