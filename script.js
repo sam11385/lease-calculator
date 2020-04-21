@@ -41,6 +41,24 @@ function calculateDays() {
     showDaysDisplay();
 }
 
+function calculateOverUnder() {
+    const parsedUserMilesAllowed = parseInt(
+        document.getElementById("userMilesAllowed").value
+    );
+    const parsedUserMilesStartedWith = parseInt(
+        document.getElementById("userMilesAllowed").value
+    );
+
+    const parsedUserMilesNow = parseInt(
+        document.getElementById("userMilesNow").value
+    );
+
+    if (parsedUserMilesAllowed + parsedUserMilesNow > parsedUserMilesAllowed) {
+        document.getElementById("overOrUnder").innerHTML =
+            "You are over your total lease mileage! That's gonna cost you.";
+    }
+}
+
 function milesAllowedPerDay() {
     const parsedUserMilesAllowed = parseInt(
         document.getElementById("userMilesAllowed").value
@@ -87,6 +105,7 @@ function calculateMiles() {
     }
     showCardDisplay();
     milesAllowedPerDay();
+    calculateOverUnder();
 }
 
 function enableButton() {
