@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Lease Mileage Calculator</title>
+    <title>Calculate Your Lease Mileage</title>
 </head>
 
 <body>
@@ -110,16 +110,17 @@
       </div>
 
       <div class="row mb-5 mt-5 hide" id="showCards">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="card">
             <div class="card-body">
               <h6 class="card-title">Current Mileage:</h6>
               <p class="card-text" id="currentMileage"></p>
+              <p class="card-text" id="overOrUnder"></p>
             </div>
           </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="card">
             <div class="card-body">
               <h6 class="card-title">
@@ -130,7 +131,18 @@
           </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">
+                Miles allowed per day:
+              </h6>
+              <p class="card-text" id="milesAllowedPerDay"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
           <div class="card" id="calculatedMiles">
             <div class="card-body">
               <h6 class="card-title">Maximum Mileage for Selected Date:</h6>

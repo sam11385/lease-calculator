@@ -24,6 +24,8 @@
 //     }
 // }
 
+function calculateMiles() {}
+
 // User input functionality
 // Get days for ANY input dates
 function calculateDays() {
@@ -37,6 +39,23 @@ function calculateDays() {
         (userEndDate - userStartDate) / (24 * 3600 * 1000) + 1
     );
     showDaysDisplay();
+}
+
+function milesAllowedPerDay() {
+    const parsedUserMilesAllowed = parseInt(
+        document.getElementById("userMilesAllowed").value
+    );
+    const parsedUserMilesStartedWith = parseInt(
+        document.getElementById("userMilesAllowed").value
+    );
+
+    const allDaysInlease = parseInt(
+        document.getElementById("totalDaysInlease").innerHTML
+    );
+
+    document.getElementById("milesAllowedPerDay").innerHTML = parseInt(
+        (parsedUserMilesAllowed + parsedUserMilesStartedWith) / allDaysInlease
+    );
 }
 
 function calculateMiles() {
@@ -67,6 +86,7 @@ function calculateMiles() {
         ).toFixed(2);
     }
     showCardDisplay();
+    milesAllowedPerDay();
 }
 
 function enableButton() {
