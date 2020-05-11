@@ -10,3 +10,7 @@
 #showMyCalculations .col-sm-4 {
     margin-bottom: 10px;
 }
+
+#showMyCalculations .col-sm-4 .card .card-title {
+    margin-bottom: 0;
+}
