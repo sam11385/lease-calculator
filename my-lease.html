@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <div class="row mt-4 mb-4">
+        <div class="row mt-3 mb-3">
             <div class="col-sm-12">
                 <p>First, let's enter in todays mileage</p>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="row mb-3 mt-4">
+        <div class="row mb-3 mt-3">
             <div class="input-group">
                 <div class="col-sm-6">
                     Lease Start Date:
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="row mb-4 hide" id="showMyCalculations">
+        <div class="row mb-3 hide" id="showMyCalculations">
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
@@ -55,7 +55,7 @@
             <div class="col-sm-4">
                 <div class="card" id="calculatedMiles">
                     <div class="card-body">
-                        <h6 class="card-title">Maximum Mileage for Selected Date:</h6>
+                        <h6 class="card-title">Projected Mileage for Selected Date:</h6>
                         <p class="card-text" id="calculatedMileage"></p>
                     </div>
                 </div>
@@ -64,15 +64,15 @@
 
         <div class="row over-under hide" id="showLeaseMileageOverUnder">
             <div class="col-sm-12">
-                <h2>
+                <h5>
                     You are <span class="hide" id="overBy">over</span>
                     <span class="hide" id="underBy">under</span> your lease allotment by
                     <span id="comparedMileage"></span> miles.
-                </h2>
+                </h5>
             </div>
         </div>
 
-        <div class="row mt-4">
+        <div class="row mt-3">
             <div class="col-sm-3">
                 <button type="button" class="btn btn-primary" onclick="location.reload()">
             Reset All Values
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="col-sm-12">
                 <hr />
             </div>

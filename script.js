@@ -73,7 +73,7 @@ function milesAllowedPerDay() {
 
     document.getElementById("milesAllowedPerDay").innerHTML = parseInt(
         (parsedUserMilesAllowed + parsedUserMilesStartedWith) / allDaysInlease
-    );
+    ).toFixed(5);
 }
 
 function calculateMiles() {
@@ -91,7 +91,7 @@ function calculateMiles() {
     );
 
     document.getElementById("daysCalculation").innerHTML = parseInt(
-        (userEndDate - today) / (24 * 3600 * 1000)
+        (userEndDate - today) / (24 * 3600 * 1000) + 1
     );
 
     if (document.getElementById("mileageDate")) {

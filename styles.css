@@ -6,3 +6,7 @@
     max-width: 100px;
     display: inline-block;
 }
+
+#showMyCalculations .col-sm-4 {
+    margin-bottom: 10px;
+}
